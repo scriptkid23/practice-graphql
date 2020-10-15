@@ -1,0 +1,23 @@
+{
+  "name": "practice-graphql",
+  "version": "1.0.0",
+  "description": "Practice graphql using express and apollo server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/scriptkid23/practice-graphql.git"
+  },
+  "author": "HoanDo.",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/scriptkid23/practice-graphql/issues"
+  },
+  "homepage": "https://github.com/scriptkid23/practice-graphql#readme",
+  "dependencies": {
+    "apollo-server": "^2.18.2",
+    "graphql": "^15.3.0"
+  }
+}
