@@ -14,7 +14,7 @@ const login = async (_, { email, password }) => {
   if (!isPasswordValid) {
     throw new AuthenticationError('Incorrect password')
   }
-  const token = tokenUtil.create(user._id)
+  const token = tokenUtil.createToken(user._id)
   return {
     user: {
       ...user._doc,
