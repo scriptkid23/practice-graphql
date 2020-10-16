@@ -6,6 +6,6 @@ module.exports = makeExecutableSchemaFromModules({
   modules: [
     auth,
     books,
-    // chats,
+    chats,
   ]
 })
