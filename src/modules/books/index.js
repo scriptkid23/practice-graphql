@@ -1,6 +1,12 @@
 const { gql } = require('apollo-server-express')
 
 const typeDefs = gql`
+  type Book {
+    id: ID!
+    title: String!
+    createdBy: User!
+    created: DateTime!
+  }
   extend type Query {
     book(id: ID!): Book @isAuthenticated
     books: [Book] @isAuthenticated
@@ -11,12 +17,7 @@ const typeDefs = gql`
     ): Book
   }
   
-  type Book {
-    id: ID!
-    title: String!
-    createdBy: User!
-    created: DateTime!
-  }
+
 `
 
 const resolvers = require('./resolvers')

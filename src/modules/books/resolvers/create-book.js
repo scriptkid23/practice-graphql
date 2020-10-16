@@ -3,6 +3,7 @@ const Book = require('../../../models/book')
 const createBook = async (_, {
   title
 }, { user }) => {
+  console.log(user)
   const userId = user._id.toString()
 
   const newBook = new Book({
