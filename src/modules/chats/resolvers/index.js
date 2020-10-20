@@ -1,18 +1,17 @@
-// const createMessage = require('./create-message');
-const createRoom    = require('./create-room');
-// const messages      = require('./messages');
-const room          = require('./room');
-const rooms         =  require('./rooms');
+const {createRoom,createMessage} = require('./mutations');
+
+
+const {room,rooms,messages}  =  require('./queries');
 
 const resolvers = {
     Query : {
-        // messages,
         room,
-        rooms
+        rooms,
+        messages
     },
     Mutation : {
         createRoom,
-        // createMessage
+        createMessage
     }
 
 }

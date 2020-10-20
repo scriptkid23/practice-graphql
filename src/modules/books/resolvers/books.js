@@ -1,11 +1,14 @@
 const Book = require('../../../models/book')
 
-const books = async (_) => {
+const books = async (_,{},{user}) => {
+  
   const books = await Book
     .find()
-    .populate('createdBy')
-
-  return books
+    .populate({
+      path : "createdBy"
+      
+    })
+    return books.filter(book => book.createdBy.email === user.email)
 }
 
 module.exports = books
