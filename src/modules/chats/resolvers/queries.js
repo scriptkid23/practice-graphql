@@ -1,3 +1,4 @@
+// of resolvers
 const { ApolloError } = require('apollo-server-express')
 const Room = require('../../../models/Room')
 const Message = require('../../../models/Message')
@@ -12,13 +13,14 @@ const room = async (_, args) => {
   }
 
   return room
-}
-const messages = async(_) => {
+} 
+const messages = async(_, args) => {
+    const { id }  = args
     const messages = await Message.
     find().
     populate('sendTo').
     populate('sendBy')
-    return messages
+    return messages.filter((value) => value.sendTo._id.toString() === id)
 }
 const rooms = async (_) => {
   const rooms = await Room

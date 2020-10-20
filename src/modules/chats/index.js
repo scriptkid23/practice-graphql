@@ -1,3 +1,4 @@
+// defined Schema
 const { gql } = require('apollo-server-express')
 //Chat Schema
 const typeDefs = gql`
@@ -14,10 +15,11 @@ const typeDefs = gql`
        sendTo: Room!
        sendAt: DateTime!
    }
+ 
   extend type Query {
       room(id: ID!): Room @isAuthenticated
       rooms: [Room] @isAuthenticated
-      messages: [Message]
+      messages(id: ID!): [Message]
     }
   extend type Mutation {
     createRoom(
@@ -28,6 +30,11 @@ const typeDefs = gql`
       sendTo: ID!
     ): Message
   }
+  type Subscription {
+    subscribeRoom: Room!
+    subscribeMessage: [Message]
+  }
+ 
 `
 
 const resolvers = require('./resolvers')
