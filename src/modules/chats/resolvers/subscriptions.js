@@ -1,7 +1,14 @@
-
-const subscribeRoom = (_, args,context) => {
-    console.log(context.user)
-    return
+const pubsub = require('../../../utils/pubsub')
+const subscribeRoom = {
+    subscribe: () => pubsub.asyncIterator("NEW_ROOM"),
+    resolve: payload => {
+        return payload
+      },
+};
+const subscribeMessage = {
+    subscribe: () => pubsub.asyncIterator("NEW_MESSAGE"),
+    resolve: payload => {
+        return payload
+      },
 }
-
-module.exports = {subscribeRoom}
+module.exports = {subscribeRoom,subscribeMessage}
