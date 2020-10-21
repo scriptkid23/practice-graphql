@@ -32,7 +32,7 @@ const typeDefs = gql`
   }
   type Subscription {
     subscribeRoom: Room!
-    subscribeMessage: [Message]
+    subscribeMessage: [Message!]
   }
  
 `

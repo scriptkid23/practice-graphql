@@ -1,24 +1,22 @@
 const Message = require('../../../models/Message')
 
-function CreateMessageService(message,sendBy,sendTo,pubsub){
+async function CreateMessageService(message,sendBy,sendTo){
     const newMessage = new Message({ 
         message : message,
         sendBy  : sendBy,
         sendTo  : sendTo
     })
-    newMessage.
+    result = await newMessage.
     populate('sendBy').
     populate('sendTo').
     execPopulate();
-    // pubsub.publish("MESSAGE_SUBSCRIBE", newMessage)
-    return newMessage.save()
+    newMessage.save()
+    return result 
 }
-function UpdateMessageService(id,message,pubsub){
-    Message.findById(id,(err,res) => {
-        res.message = message 
-        // pubsub.publish("MESSAGE_SUBSCRIBE", res)
-        res.save()
-    })
-    
+async function UpdateMessageService(id,message){
+    let result =  await Message.findById(id).populate('sendBy').populate('sendTo');
+    result.message.push(message)
+    result.save()
+    return result
 }
 module.exports ={CreateMessageService,UpdateMessageService}

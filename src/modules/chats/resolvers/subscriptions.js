@@ -8,6 +8,7 @@ const subscribeRoom = {
 const subscribeMessage = {
     subscribe: () => pubsub.asyncIterator("NEW_MESSAGE"),
     resolve: payload => {
+      console.log("Hello",payload)
         return payload
       },
 }

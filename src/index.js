@@ -23,7 +23,7 @@ const startServer = (async function () {
         },
           {
             server : server,
-            path: '/graphql'
+            path: '/graphql',
           }
         )
       })
