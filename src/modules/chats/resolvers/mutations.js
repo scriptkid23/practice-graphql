@@ -20,7 +20,6 @@ const createMessage = async (_,{message,sendTo},{user,pubsub}) => {
     else if(messageStore[messageStore.length - 1].sendBy._id.toString() === userId){
       let id = messageStore[messageStore.length - 1]._id;
       messageStore[messageStore.length - 1].message.push(message)
-      console.log(messageStore)
       pubsub.publish("NEW_MESSAGE",messageStore)
       return UpdateMessageService(id,message)
 
