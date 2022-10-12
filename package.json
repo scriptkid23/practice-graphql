@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/scriptkid23/practice-graphql#readme",
   "dependencies": {
-    "apollo-server": "^2.18.2",
+    "apollo-server": "^2.25.4",
     "bcrypt": "^5.0.0",
     "deepmerge": "^4.2.2",
     "dotenv": "^8.2.0",
